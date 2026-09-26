@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "cardboardstereo",
+    "name": "Cardboard Stereo",
+    "description": "Splits the Minecraft view into a stereoscopic left/right pair for Google Cardboard, driven by PojavLauncher's gyro-to-mouse camera movement. Client-side only.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["you"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

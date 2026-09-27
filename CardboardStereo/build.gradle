@@ -1,7 +1,16 @@
-plugins {
-    id 'net.minecraftforge.gradle.forge' version '2.1-SNAPSHOT'
-    id 'java'
+buildscript {
+    repositories {
+        maven { url = "https://maven.minecraftforge.net" }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+    }
 }
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'java'
 
 version = "1.0.0"
 group = "com.cardboardstereo"

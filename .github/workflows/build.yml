@@ -22,11 +22,15 @@ jobs:
         with:
           gradle-version: '4.10.3'
 
-      - name: Build Mod with Gradle 4.10.3
-        run: gradle build
+      - name: Build Mod with Gradle
+        run: gradle setupDecompWorkspace build --stacktrace
+
+      - name: List files (Debug)
+        run: find . -name "*.jar"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Mod-JAR
-          path: '**/*.jar'
+          path: '**/build/libs/*.jar'
+          if-no-files-found: warn

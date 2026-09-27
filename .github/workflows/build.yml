@@ -23,10 +23,16 @@ jobs:
           gradle-version: '2.14'
 
       - name: Build with Gradle
-        run: gradle build --no-daemon --stacktrace
+        run: gradle build --stacktrace
+
+      - name: List all jars produced (debug)
+        run: find . -name "*.jar" -not -path "*/gradle/*" -not -path "*/.gradle/*"
 
       - name: Upload built jar
         uses: actions/upload-artifact@v4
         with:
           name: CardboardStereo-jar
-          path: build/libs/*.jar
+          path: |
+            build/libs/*.jar
+            **/build/libs/*.jar
+          if-no-files-found: warn

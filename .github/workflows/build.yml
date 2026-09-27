@@ -1,4 +1,4 @@
-name: Build Mod
+name: Build Mod 1.8.9
 
 on:
   push:
@@ -22,15 +22,12 @@ jobs:
         with:
           gradle-version: '4.10.3'
 
-      - name: Build Mod with Gradle
-        run: gradle setupDecompWorkspace build --stacktrace
-
-      - name: List files (Debug)
-        run: find . -name "*.jar"
+      - name: Build Mod
+        run: gradle build --stacktrace
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Mod-JAR
-          path: '**/build/libs/*.jar'
+          name: Mod-1.8.9-JAR
+          path: 'build/libs/*.jar'
           if-no-files-found: warn

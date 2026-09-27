@@ -36,3 +36,5 @@ jobs:
             build/libs/*.jar
             **/build/libs/*.jar
           if-no-files-found: warn
+      - name: Build with Gradle
+        run: gradle build --stacktrace --info

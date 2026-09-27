@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: CardboardStereo
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,18 +26,14 @@ jobs:
           gradle-version: '2.14'
 
       - name: Build with Gradle
-        run: gradle build --stacktrace
+        run: gradle build --stacktrace --info
 
       - name: List all jars produced (debug)
-        run: find . -name "*.jar" -not -path "*/gradle/*" -not -path "*/.gradle/*"
+        run: find .. -name "*.jar" -not -path "*/gradle/*" -not -path "*/.gradle/*"
 
       - name: Upload built jar
         uses: actions/upload-artifact@v4
         with:
           name: CardboardStereo-jar
-          path: |
-            build/libs/*.jar
-            **/build/libs/*.jar
+          path: CardboardStereo/build/libs/*.jar
           if-no-files-found: warn
-      - name: Build with Gradle
-        run: gradle build --stacktrace --info

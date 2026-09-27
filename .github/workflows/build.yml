@@ -23,7 +23,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: '2.14'
+          gradle-version: '4.9'
 
       - name: Build with Gradle
         run: gradle build --stacktrace --info
